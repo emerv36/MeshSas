@@ -1,0 +1,10 @@
+/* Theme 3: Vibrant */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+.hero-overlay {
+    background: linear-gradient(135deg, rgba(255,107,53,0.8), rgba(42,53,71,0.8)) !important;
+}
+.btn-primary {
+    border-radius: 50px;
+}

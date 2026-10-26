@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* Theme 2: Corporate (Premium) */
+:root {
+    --theme-font: 'Inter', sans-serif;
+    --text-color: #334155;
+    --bg-color: #ffffff;
+}
+
+body {
+    font-family: var(--theme-font) !important;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Modificaciones Globales para Navbar en T2 */
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+.navbar .nav-links a {
+    color: #475569 !important;
+    font-weight: 500;
+}
+.navbar .nav-links a:hover {
+    color: var(--primary) !important;
+}
+
+/* Fix global para contenedor que pueda fallar al usar flex */
+.container {
+    max-width: 1280px;
+}
+
+/* Botones genéricos de la plantilla 2 */
+.btn {
+    font-family: var(--theme-font);
+    border-radius: 8px; /* Botones más cuadrados y modernos */
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Ocultar elementos de UI originales de theme-1 si llegan por fallback */
+.hero-overlay { display: none; }
+.fixed-hero-ui { display: none; }
+
+/* Override inherited styles from style.css */
+.hero.theme-2-hero {
+    background: none !important;
+    height: auto; /* style.css fija 85vh: dejaba franjas vacías alrededor de la tarjeta */
+    min-height: auto;
+}
+
+.theme-2-hero .container {
+    max-width: 1280px;
+}
+
+@media (max-width: 768px) {
+    .theme-2-hero .hero-text-col {
+        padding-right: 0 !important;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    .theme-2-hero .hero-buttons {
+        justify-content: center;
+    }
+}

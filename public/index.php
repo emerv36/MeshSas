@@ -1,0 +1,1 @@
+<?php // Nuevo punto de entrada (Frontend controller) - En construccion

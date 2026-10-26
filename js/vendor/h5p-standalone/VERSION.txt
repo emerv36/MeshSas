@@ -1,0 +1,2 @@
+h5p-standalone 3.8.2 (MIT) — https://github.com/tunapanda/h5p-standalone
+Copiado de dist/ del paquete npm (integridad sha512 verificada).

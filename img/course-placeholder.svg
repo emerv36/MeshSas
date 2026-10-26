@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="fondo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#334155"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#fondo)"/>
+  <!-- Birrete -->
+  <g fill="#94a3b8" transform="translate(320 180)">
+    <path d="M0-62 120-14 0 34-120-14Z"/>
+    <path d="M-72 12v34c0 18 32 34 72 34s72-16 72-34V12L0 41Z"/>
+    <rect x="104" y="-14" width="8" height="62" rx="4"/>
+    <circle cx="108" cy="54" r="10"/>
+  </g>
+</svg>

@@ -1,0 +1,3 @@
+# Paquetes H5P descomprimidos: nunca se sirven por URL directa.
+# Los entrega dashboard/h5p_archivo.php después de comprobar el acceso al curso.
+Require all denied

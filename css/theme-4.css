@@ -1,0 +1,8 @@
+/* Theme 4: Classic */
+body {
+    font-family: 'Merriweather', serif;
+    color: #333;
+}
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+}

@@ -1,0 +1,12 @@
+/*
+ * Adinex LMS - Base CSS
+ * Reseteos básicos y estilos para elementos HTML globales.
+ * Ej: body, h1, h2, a, p.
+ */
+@import 'tokens.css';
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+}

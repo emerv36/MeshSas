@@ -1,0 +1,34 @@
+# Secretos y configuración local
+.env
+
+# Archivos subidos por usuarios (datos personales, comprobantes de pago, imágenes de cursos)
+# (se versionan solo los .htaccess de protección)
+uploads/*
+!uploads/.htaccess
+!uploads/tareas/
+uploads/tareas/*
+!uploads/tareas/.htaccess
+!uploads/pagos/
+uploads/pagos/*
+!uploads/pagos/.htaccess
+
+# Paquetes H5P subidos por los docentes (se versiona solo el .htaccess de protección)
+contenido_h5p/*
+!contenido_h5p/.htaccess
+
+# Datos generados en tiempo de ejecución
+storage/*
+!storage/.gitkeep
+
+# Logs
+error_log
+*.log
+
+# Volcados y copias con datos o secretos (los scripts de esquema y migraciones sí se versionan)
+*.sql
+!database/migrations/*.sql
+!database/schema.sql
+!database/deploy/*.sql
+!database/payment_enrollment_indexes.sql
+*.zip
+*.bak

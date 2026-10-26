@@ -1,0 +1,9 @@
+/*
+ * Adinex LMS - CSS Tokens
+ * Aquí se definirán variables globales (Custom Properties).
+ * Ej: colores primarios, espaciados, tipografías, sombras.
+ */
+:root {
+    --primary-color: #0056b3;
+    /* ... futuras variables ... */
+}

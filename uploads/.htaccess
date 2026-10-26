@@ -1,0 +1,14 @@
+# Archivos subidos por usuarios: se sirven como datos, nunca se ejecutan.
+<FilesMatch "\.(php\d?|phtml|phar|pht|shtml|cgi|pl|py|sh|asp|aspx|jsp|html?|xhtml|svgz?|xml|js)$">
+    Require all denied
+</FilesMatch>
+
+<IfModule mime_module>
+    RemoveHandler .php .php8 .phtml .phar
+    RemoveType .php .php8 .phtml .phar
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Content-Security-Policy "default-src 'none'; img-src 'self'; style-src 'unsafe-inline'; sandbox"
+</IfModule>

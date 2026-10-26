@@ -1,0 +1,53 @@
+Options -Indexes
+
+# Bloquear archivos ocultos (.env, .git, .htaccess), volcados, copias, logs, metadatos y scripts sueltos
+<FilesMatch "(^\.|\.(sql|zip|tar|gz|rar|7z|bak|old|orig|swp|log|md|lock|ini|sh|py|dist)$|^error_log$|^composer\.json$)">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+RewriteEngine On
+
+# Carpetas internas: solo se incluyen desde PHP, nunca se sirven por URL
+RewriteRule ^(\.git|\.agents|vendor|app|helpers|resources|components|database|cron|contenido_h5p|config|routes|storage|legacy)(/|$) - [F,L]
+
+RewriteRule ^verificar/([a-zA-Z0-9]+)$ verificar.php?codigo=$1 [L,QSA]
+
+# Redirigir a HTTPS si no lo está (Opcional, desactivado en localhost)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Quitar la barra final si no es un directorio (para mantener las URLs consistentes).
+# Usa REQUEST_URI para funcionar tanto en la raíz del dominio como en una subcarpeta.
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^(.+)/$
+RewriteRule ^ %1 [L,R=301]
+
+# Si la petición no es para un archivo existente
+RewriteCond %{REQUEST_FILENAME} !-f
+# Y no es un directorio
+RewriteCond %{REQUEST_FILENAME} !-d
+# Y el archivo .php correspondiente existe
+RewriteCond %{REQUEST_FILENAME}.php -f
+# Y no hay nada después del nombre: en /pagina/x Apache deja REQUEST_FILENAME en .../pagina
+# y PATH_INFO en /x, y la regla añadía .php a toda la URL (x.php, x.php.php...) hasta dar 500
+RewriteCond %{PATH_INFO} ^$
+# Entonces, sirve el archivo .php pero sin mostrar la extensión en la URL
+RewriteRule ^(.*)$ $1.php [L]
+
+# Páginas de error personalizadas (en local el sitio vive en /MeshSas/)
+<If "%{REQUEST_URI} =~ m#^/MeshSas(/|$)#">
+    ErrorDocument 404 "/MeshSas/404.php"
+    ErrorDocument 403 "/MeshSas/403.php"
+    ErrorDocument 500 "/MeshSas/500.php"
+</If>
+<Else>
+    ErrorDocument 404 /404.php
+    ErrorDocument 403 /403.php
+    ErrorDocument 500 /500.php
+</Else>

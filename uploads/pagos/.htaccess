@@ -1,0 +1,3 @@
+# Comprobantes de pago (datos personales): sin acceso directo.
+# Se sirven solo a admin/tesoreria mediante admin/ver_comprobante.php.
+Require all denied
