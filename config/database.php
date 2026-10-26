@@ -1,4 +1,5 @@
 <?php
+// Sin uso: ningún archivo carga este esqueleto. La conexión real está en config.php y lee el .env.
 // Mapea la configuración actual sin romper config.php existente
 if (file_exists(dirname(__DIR__) . '/config.php')) {
     // Aquí se podrían cargar variables de config.php legacy si se requiere.
@@ -10,7 +11,7 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'host' => '127.0.0.1',
-            'database' => 'mesh_lms_db',
+            'database' => getenv('DB_NAME') ?: '',
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8mb4',

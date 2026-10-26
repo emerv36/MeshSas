@@ -70,6 +70,17 @@ Responde siempre en español. Este documento lo ejecuta una sesión abierta en `
 8. **Repo de GitHub propio:** confirma que el usuario ya lo creó y que `origin` apunta a él (`git remote -v`). Si no, pídele la URL.
 9. **Datos actuales:** ¿los datos copiados de Mesh pasan a ser la institución 1 de ejemplo o se empieza en limpio?
 
+### Respuestas del usuario (2026-10-26)
+1. **Dominios:** `meshsas.com` en producción y `meshsas.test` en local.
+2. **Correos:** el mismo correo puede tener cuentas independientes en varias instituciones, con `UNIQUE(institucion_id, email)`.
+3. **Superadministrador:** en `admin.meshsas.com` (`admin.meshsas.test` en local). `admin` es palabra reservada para los slugs.
+4. **Dominio raíz:** página comercial. En la fase 2 se hace una versión sencilla; el diseño completo queda para la fase 7 o después.
+5. **Dominios propios:** en una versión posterior. La columna `dominio` se crea en la fase 1, pero la fase 2 resuelve solo por subdominio.
+6. **Planes y cobro:** fuera de esta versión; solo los campos `plan` y `estado`.
+7. **Hosting:** no se sabe si admite subdominio y SSL comodín; queda como requisito en la guía de despliegue.
+8. **Repo:** `origin` es `https://github.com/emerv36/MeshSas.git`, con `main` publicado.
+9. **Datos actuales:** pasan a ser la institución 1 de ejemplo.
+
 ## 4. Fases
 
 ### Fase 0: Entorno
